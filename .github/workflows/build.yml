@@ -14,6 +14,8 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
+      - name: Fix line endings
+        run: sed -i 's/\r//' gradlew
       - name: Grant execute permission
         run: chmod +x gradlew
       - name: Build APK
@@ -21,4 +23,4 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: app-debug
-          path: app/build/outputs/apk/debug/app-debug.apk
+          path: app/build/outputs/apk
